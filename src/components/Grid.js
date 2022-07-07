@@ -3,7 +3,7 @@ import Row from "./Row";
 
 const Grid = ({ currentGuess, guesses, turn }) => {
   return (
-    <div>
+    <div style={{ marginBottom: "1rem" }}>
       {guesses.map((guess, i) => {
         if (turn === i) {
           return <Row key={i} currentGuess={currentGuess} />;

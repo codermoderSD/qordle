@@ -52,7 +52,21 @@ h1 {
   line-height: 45px;
   text-transform: uppercase;
   font-weight: 600 !important;
-  font-size: 2em;
+  font-size: 1.5rem;
+}
+
+.row > input {
+  display: block;
+  width: 41px;
+  height: 43px;
+  border: 1px solid #bbb;
+  margin: 3px;
+  text-align: center;
+  line-height: 45px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600 !important;
+  font-size: 1.5rem;
 }
 
 .row > div.green {
@@ -84,7 +98,7 @@ h1 {
   animation-delay: 0.8s;
 }
 
-.row.current > div.filled {
+.row.current > .filled {
   animation: bounce 0.1s ease-in-out forwards;
 }
 
@@ -205,5 +219,17 @@ h1 {
   100% {
     transform: scale(1);
     border-color: #333;
+  }
+}
+
+.vkeyboard {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .vkeyboard {
+    display: block;
+    position: sticky;
+    bottom: 0;
   }
 }

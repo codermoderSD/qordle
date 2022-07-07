@@ -3,6 +3,8 @@ import useWordle from "../hooks/useWordle";
 import Grid from "./Grid";
 import Keypad from "./Keypad";
 import Modal from "./Modal";
+import Keyboard from "react-simple-keyboard";
+import "react-simple-keyboard/build/css/index.css";
 
 const Wordle = ({ solution }) => {
   const [showModal, setShowModal] = useState(false);
@@ -36,6 +38,47 @@ const Wordle = ({ solution }) => {
       {showModal && (
         <Modal isCorrect={isCorrect} turn={turn} solution={solution} />
       )}
+      <div className="vkeyboard">
+        <Keyboard
+          onKeyPress={(button) => {
+            handleKeyup({ key: button });
+            console.log(button);
+          }}
+          mergeDisplay={true}
+          layoutName="default"
+          layout={{
+            default: [
+              "q w e r t y u i o p",
+              "a s d f g h j k l",
+              "{shift} z x c v b n m {backspace}",
+              "{numbers} {space} {enter}",
+            ],
+            shift: [
+              "Q W E R T Y U I O P",
+              "A S D F G H J K L",
+              "{shift} Z X C V B N M {backspace}",
+              "{numbers} {space} {enter}",
+            ],
+            numbers: ["1 2 3", "4 5 6", "7 8 9", "{abc} 0 {backspace}"],
+          }}
+          display={{
+            "{numbers}": "123",
+            "{enter}": "return",
+            "{escape}": "esc ⎋",
+            "{tab}": "tab ⇥",
+            "{backspace}": "⌫",
+            "{capslock}": "caps lock ⇪",
+            "{shift}": "⇧",
+            "{controlleft}": "ctrl ⌃",
+            "{controlright}": "ctrl ⌃",
+            "{altleft}": "alt ⌥",
+            "{altright}": "alt ⌥",
+            "{metaleft}": "cmd ⌘",
+            "{metaright}": "cmd ⌘",
+            "{abc}": "ABC",
+          }}
+        />
+      </div>
     </div>
   );
 };
