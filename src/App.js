@@ -14,7 +14,7 @@ const App = () => {
     };
 
     fetch(
-      "https://random-words5.p.rapidapi1.com/getRandom?wordLength=5",
+      "https://random-words5.p.rapidapi.com/getRandom?wordLength=5",
       options
     )
       .then((response) => response.text())
